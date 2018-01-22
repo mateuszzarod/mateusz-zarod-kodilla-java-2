@@ -41,3 +41,5 @@ public class ForumComment {
         return Objects.hash(getForumPost(), getCommentBody(), getAuthor());
     }
 }
+
+

@@ -33,22 +33,36 @@ public class CollectionTestSuite {
 
     @Test
     public void testOddNumbersExterminatorNormalList() {
+
+        //Given
         ArrayList<Integer> evenNumbers = new ArrayList<Integer>();
         evenNumbers.add(2);
         evenNumbers.add(4);
         evenNumbers.add(6);
         evenNumbers.add(8);
         evenNumbers.add(10);
-        ArrayList<Integer> oddNumbers = new ArrayList<Integer>();
-        oddNumbers.add(3);
-        oddNumbers.add(6);
-        oddNumbers.add(9);
-        oddNumbers.add(12);
-        oddNumbers.add(15);
+        evenNumbers.add(3);
+        evenNumbers.add(6);
+        evenNumbers.add(9);
+        evenNumbers.add(12);
+        evenNumbers.add(15);
+
+        ArrayList<Integer> expectedResult = new ArrayList<Integer>();
+        expectedResult.add(2);
+        expectedResult.add(4);
+        expectedResult.add(6);
+        expectedResult.add(8);
+        expectedResult.add(10);
+        expectedResult.add(6);
+        expectedResult.add(12);
+
         OddNumbersExterminator checkList = new OddNumbersExterminator();
+
+        //When
         ArrayList<Integer> resultListEvenNumbers = checkList.exterminate(evenNumbers);
-        Assert.assertEquals(5, resultListEvenNumbers.size());
-        ArrayList<Integer> resultListOddNumbers = checkList.exterminate(oddNumbers);
-        Assert.assertEquals(2, resultListOddNumbers.size());
+        //Then
+
+        Assert.assertEquals(expectedResult, resultListEvenNumbers);
     }
 }
+
