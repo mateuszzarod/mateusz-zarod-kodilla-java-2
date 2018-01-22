@@ -55,6 +55,7 @@ public class CollectionTestSuite {
         expectedResult.add(10);
         expectedResult.add(6);
         expectedResult.add(12);
+        //comment
 
         OddNumbersExterminator checkList = new OddNumbersExterminator();
 
