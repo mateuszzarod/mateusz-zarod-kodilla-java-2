@@ -9,31 +9,43 @@ import java.util.List;
  * trzecią pobierającą z kolekcji figurę z pozycji n listy.*/
 
 public class ShapeCollector {
-    ArrayList<Shape> figure = new ArrayList<>();
 
-    //test trzy figury
-    //sprawdził getfigure 1,2,3
-    //sprawdzić czy zwracają dobre wyniki
+    private Shape shape;
+    private ArrayList<Shape> figureList = new ArrayList<Shape>();
 
+    public ShapeCollector(Shape shape) {
+        this.shape = shape;
+    }
 
-    public Shape addFigure(Shape shape){
+    public Shape getShape() {
         return shape;
     }
 
-    public Shape removeFigure(Shape shape){
-        return null;
+    public ArrayList<Shape> getFigureList() {
+        return figureList;
     }
 
-    public Shape getFigure(int n){
-        return null;
+    //w jaki sposób stowrzyć metodę pobierającą element n ze stworzeonej listy?
+    public Shape getFigureOnList(int n){
+        return figureList.get(n);
     }
+
+
+    //
+    public List<Shape> addFigure(Shape shape){
+         figureList.add(shape);
+         return figureList;
+    }
+
+    // tutaj chciałem stworzyć metodę typu boolean która sprawdza czy figureList zawiera dodany kształt
+    public boolean removeFigure(Shape shape){
+        return true;
+    }
+
 
     public List<Shape> showFigures(){
-        return figure;
+        return null;
     }
-
-//czy figura dodana jest ta sama co oczekiwana
-
 
 
 
