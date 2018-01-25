@@ -25,12 +25,13 @@ public class ShapeCollectorTestSuite {
 
     @Before
     public void beforeEveryTest() {
+        shapeCollector = new ShapeCollector();
         testCounter++;
         System.out.println("Preparing to execute test #" + testCounter);
     }
 
     @Test
-    public void shouldAddShape() {
+    public void addFigure() {
 
         //Given
         Square theSquare = new Square();
@@ -43,23 +44,21 @@ public class ShapeCollectorTestSuite {
         shapeCollector.addFigure(theTriangle);
 
         //Then
-        Shape tempFigure1 = shapeCollector.getFigureOnList(0);
-        Shape tempFigure2 = shapeCollector.getFigureOnList(1);
-        Shape tempFigure3 = shapeCollector.getFigureOnList(2);
-        Assert.assertEquals("square", tempFigure1.getShapeName());
+        Shape tempFigure1 = shapeCollector.getFigure(0);
+        Shape tempFigure2 = shapeCollector.getFigure(1);
+        Shape tempFigure3 = shapeCollector.getFigure(2);
 
-        // lub
-        //Assert.assertEquals(theSquare, shapeCollector.getFigure(0));
+        Assert.assertEquals(theSquare, shapeCollector.getFigure(0));
+        Assert.assertEquals(theCircle, shapeCollector.getFigure(1));
+        Assert.assertEquals(theTriangle, shapeCollector.getFigure(2));
+        }
 
-        Assert.assertEquals("circle", tempFigure2.getShapeName());
-        Assert.assertEquals("triangle", tempFigure3.getShapeName());
-    }
     @Test
     public void testRemoveFigure(){
         //Given
         Square theSqare = new Square();
+        shapeCollector.addFigure(theSqare);
         //When
-        List<Shape> tempFigure4 = shapeCollector.addFigure(theSqare);
         boolean result = shapeCollector.removeFigure(theSqare);
         //Then
         Assert.assertTrue(result);
@@ -72,10 +71,10 @@ public class ShapeCollectorTestSuite {
         shapeCollector.addFigure(theSquare);
 
         //When
-        shapeCollector.getFigureOnList(0);
+        shapeCollector.getFigure(0);
 
         //Then
-        Assert.assertEquals(theSquare, shapeCollector.getFigureOnList(0));
+        Assert.assertEquals(theSquare, shapeCollector.getFigure(0));
     }
 
 

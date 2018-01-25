@@ -11,9 +11,10 @@ import java.util.List;
 public class ShapeCollector {
 
     private Shape shape;
-    private ArrayList<Shape> figureList = new ArrayList<Shape>();
+    //zmemniłem nazwę na taką która nie wskazuje listy
+    private List<Shape> figures = new ArrayList<Shape>();
 
-    public ShapeCollector(Shape shape) {
+    public ShapeCollector() {
         this.shape = shape;
     }
 
@@ -21,27 +22,34 @@ public class ShapeCollector {
         return shape;
     }
 
-    public ArrayList<Shape> getFigureList() {
-        return figureList;
+    //Kamil nie rozumie, co znaczy że zwracany typ jest mało ogólny?
+    // może być mniej ogólny?
+    //poprawiłem typ na List zmieniłem nazwę, ale nie wiem jaki typ zwracać bardziej ogólny
+    //czy ta metoda ma pokazywać jakie elementy są na liście figure?
+
+    public List<Shape> getFigures() {
+        return  figures;
     }
 
-    //w jaki sposób stowrzyć metodę pobierającą element n ze stworzeonej listy?
-    public Shape getFigureOnList(int n){
-        return figureList.get(n);
+    public Shape getFigure(int n){
+        return figures.get(n);
     }
 
-
-    //
-    public List<Shape> addFigure(Shape shape){
-         figureList.add(shape);
-         return figureList;
+    public void addFigure(Shape shape){
+         figures.add(shape);
     }
 
-    // tutaj chciałem stworzyć metodę typu boolean która sprawdza czy figureList zawiera dodany kształt
+    //Kamil może trochę przekombinowałem ale chciałem powalczyć z tym boolean
+    // :D ale dałoby się zrobić i metodę i test prościej? :)
+
     public boolean removeFigure(Shape shape){
-        return true;
+        boolean result = false;
+        if(figures.contains(shape)){
+            figures.remove(shape);
+            result = true;
+        }
+        return result;
     }
-
 
     public List<Shape> showFigures(){
         return null;
