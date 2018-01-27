@@ -2,14 +2,24 @@ package com.kodilla.testing.shape;
 
 
 public class Circle implements Shape {
+    private final double PI = 3.14159;
+    private double radius;
 
-    @Override
-    public String getShapeName() {
-        return "I am Circle";
+    public Circle(double r) {
+        radius = r;
+    }
+
+    public double getRadius() {
+        return radius;
     }
 
     @Override
-    public int getField() {
-        return 0;
+    public String getShapeName() {
+        return "Circle";
+    }
+
+    @Override
+    public double getField() {
+        return PI * radius * radius;
     }
 }

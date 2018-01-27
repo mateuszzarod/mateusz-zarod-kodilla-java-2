@@ -10,17 +10,12 @@ import java.util.List;
 
 public class ShapeCollector {
 
-    private Shape shape;
     //zmemniłem nazwę na taką która nie wskazuje listy
     private List<Shape> figures = new ArrayList<Shape>();
 
     public ShapeCollector() {
-        this.shape = shape;
     }
 
-    public Shape getShape() {
-        return shape;
-    }
 
     //Kamil nie rozumie, co znaczy że zwracany typ jest mało ogólny?
     // może być mniej ogólny?
@@ -49,10 +44,6 @@ public class ShapeCollector {
             result = true;
         }
         return result;
-    }
-
-    public List<Shape> showFigures(){
-        return null;
     }
 
 }
