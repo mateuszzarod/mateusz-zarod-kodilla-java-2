@@ -105,6 +105,7 @@ public class ShapeCollectorTestSuite {
         double circleField = theCircle.getField();
 
         //Then
+        //nie wiem jak prawidłowo tutaj napisać assertEquals, dostaję błąd, że nie da się po prostu porównać wartości
         Assert.assertEquals(25, squareField);
         Assert.assertEquals(10.825, triangleField);
         Assert.assertEquals(78.529, circleField);
