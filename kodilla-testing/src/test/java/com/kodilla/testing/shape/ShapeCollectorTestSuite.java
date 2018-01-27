@@ -110,6 +110,5 @@ public class ShapeCollectorTestSuite {
         Assert.assertEquals(78.529, circleField);
 
     }
-
 }
 
