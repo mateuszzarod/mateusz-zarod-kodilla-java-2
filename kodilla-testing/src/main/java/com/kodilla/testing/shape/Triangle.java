@@ -18,6 +18,7 @@ public class Triangle implements Shape {
 
     @Override
     public double getField() {
-        return (side * Math.sqrt(3))/4;
+        double sqare = Math.sqrt(3);
+        return (((side*side)*sqare)/4);
     }
 }

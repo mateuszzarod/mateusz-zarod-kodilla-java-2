@@ -1,9 +1,9 @@
 package com.kodilla.testing.shape;
 import org.junit.*;
 
-@SuppressWarnings("deprecation")
-public class ShapeCollectorTestSuite {
 
+public class ShapeCollectorTestSuite {
+    private static final double DELTA = 0.00001;
     private static int testCounter = 0;
     ShapeCollector shapeCollector;
 
@@ -105,10 +105,10 @@ public class ShapeCollectorTestSuite {
         double circleField = theCircle.getField();
 
         //Then
-        //nie wiem jak prawidłowo tutaj napisać assertEquals, dostaję błąd, że nie da się po prostu porównać wartości
-        Assert.assertEquals(25, squareField);
-        Assert.assertEquals(10.825, triangleField);
-        Assert.assertEquals(78.529, circleField);
+        //nie wiem jak prawidłowo tutaj napisać assertEquals, dostaję błąd w postaci brakującej DELTY
+        Assert.assertEquals(25, squareField, DELTA);
+        Assert.assertEquals(10.825317547305483, triangleField, DELTA);
+        Assert.assertEquals(78.53975, circleField, DELTA);
 
     }
 }
