@@ -41,7 +41,8 @@ public class CalculateForumStatisticsTestSuite {
     }
 
     @Test
-    public void testCalculateAdvStatisticsNumberOfPosts0 () {    // gdy liczba postów = 0
+    // gdy liczba postów = 0
+    public void testCalculateAdvStatisticsNumberOfPosts0 () {
         //Given
         List <String> users = generateUsers (3);
 
@@ -62,7 +63,8 @@ public class CalculateForumStatisticsTestSuite {
     }
 
     @Test
-    public void testCalculateAdvStatisticsNumberOfPosts1000 () {    //gdy liczba postów = 1000
+    //gdy liczba postów = 1000
+    public void testCalculateAdvStatisticsNumberOfPosts1000 () {
         List<String> users = generateUsers(0);
 
         when(statisticsMock.postsCount()).thenReturn(1000);
@@ -82,13 +84,14 @@ public class CalculateForumStatisticsTestSuite {
     }
 
     @Test
-    public void testCalculateAdvStatisticsNumberOfComments0 () {    //gdy liczba komentarzy = 0
+    //gdy liczba komentarzy = 0
+    public void testCalculateAdvStatisticsNumberOfComments0 () {
         //Given
         List <String> users = generateUsers (2);
 
         when(statisticsMock.postsCount()).thenReturn(0);
         when(statisticsMock.commentsCount()).thenReturn(0);
-        when(statisticsMock.usersNames()).thenReturn(users);   // muszę przygotować liste uzytkownikow
+        when(statisticsMock.usersNames()).thenReturn(users);   //metoda generująca jest pod spodem 194 i nast.
 
         //When
         calculate.calculateAdvStatistics(statisticsMock);
@@ -103,13 +106,14 @@ public class CalculateForumStatisticsTestSuite {
     }
 
     @Test
-    public void testCalculateAdvStatisticsNumberOfUser0 () {    //gdy liczba użytkowników = 0
+    //gdy liczba użytkowników = 0
+    public void testCalculateAdvStatisticsNumberOfUser0 () {
         //Given
         List <String> users = generateUsers (0);
 
         when(statisticsMock.postsCount()).thenReturn(0);
         when(statisticsMock.commentsCount()).thenReturn(0);
-        when(statisticsMock.usersNames()).thenReturn(users);   // muszę przygotować liste uzytkownikow
+        when(statisticsMock.usersNames()).thenReturn(users);   // metoda na generowanie użytkowników jest w 194
 
         //When
         calculate.calculateAdvStatistics(statisticsMock);
@@ -124,7 +128,8 @@ public class CalculateForumStatisticsTestSuite {
     }
 
     @Test
-    public void testCalculateAdvStatisticsNumberOfUser100 () {    //gdy liczba użytkowników = 100
+    //gdy liczba użytkowników = 100
+    public void testCalculateAdvStatisticsNumberOfUser100 () {
         //Given
         List <String> users = generateUsers (100);
 
@@ -145,7 +150,8 @@ public class CalculateForumStatisticsTestSuite {
     }
 
     @Test
-    public void testCalculateAdvStatisticsNumberOfCommentsLessThanPosts () {    //gdy liczba komentarzy < postów
+    //gdy liczba komentarzy < postów
+    public void testCalculateAdvStatisticsNumberOfCommentsLessThanPosts () {
         //Given
         List <String> users = generateUsers (0);
 
@@ -167,7 +173,8 @@ public class CalculateForumStatisticsTestSuite {
 
 
     @Test
-    public void testCalculateAdvStatisticsNumberOfPostsLessThanComments () {    //gdy liczba komentarzy > postów
+    //gdy liczba komentarzy > postów
+    public void testCalculateAdvStatisticsNumberOfPostsLessThanComments () {
         //Given
         List <String> users = generateUsers (0);
 
