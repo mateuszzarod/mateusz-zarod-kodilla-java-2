@@ -21,8 +21,11 @@ public class BookLibrary {
         return bookList;
         }
 
+        //Kamil zrobiłem to trochę na czuja, bo ściągnąłem z poprzedniej metody ;) ale działa
+        // w każdym razie muszę cię zapytać, dlaczego tutaj akurat się interfejs "wstrzykuje" jako pole klasy
+        // a nie implementuje
         public  List<Book> listBooksInHandsOf(LibraryUser libraryUser){
-        List<Book> bookList = new ArrayList<Book>();
+        List<Book> bookList = libraryDatabase.listBooksInHandsOf(libraryUser);
         return bookList;
         }
 /*
