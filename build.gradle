@@ -22,12 +22,12 @@ repositories {
 	mavenCentral()
 }
 
-
 dependencies {
 	//External dependencies
 	compile('org.springframework.boot:spring-boot-starter-web')
+
 	//Test dependencies
-	testCompile ('junit:junit:4.12')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
-	testCompile ('org.mockito:mockito-all:1.10.19')
+	testCompile('junit:junit:4.12')
+	testCompile('org.mockito:mockito-all:1.10.19')
 }
