@@ -31,11 +31,13 @@ public class ShapeCollectorTestSuite {
         Square theSquare = new Square(5.0);
         Circle theCircle = new Circle(5.0);
         Triangle theTriangle = new Triangle(5.0);
+        Triangle theTriangle2 = new Triangle(5.0);
 
         //When
         shapeCollector.addFigure(theSquare);
         shapeCollector.addFigure(theCircle);
         shapeCollector.addFigure(theTriangle);
+        shapeCollector.addFigure(theTriangle2);
 
         //Then
         Shape tempFigure1 = shapeCollector.getFigure(0);
