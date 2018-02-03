@@ -96,6 +96,7 @@ public class ShapeCollectorTestSuite {
 
     @Test
     public void testFigureField(){
+
         //Given
         Square theSquare = new Square(5);
         Triangle theTriangle = new Triangle(5);

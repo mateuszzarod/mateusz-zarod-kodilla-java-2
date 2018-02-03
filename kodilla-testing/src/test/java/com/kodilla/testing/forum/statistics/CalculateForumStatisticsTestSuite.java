@@ -1,8 +1,6 @@
 package com.kodilla.testing.forum.statistics;
 
-import com.kodilla.testing.shape.ShapeCollector;
 import org.junit.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +12,6 @@ public class CalculateForumStatisticsTestSuite {
     private static final double DELTA = 0.00001;
     private static int testCounter = 0;
     private Statistics statisticsMock;
-
     private CalculateForumStatistics calculate;
 
     @BeforeClass
@@ -32,13 +29,12 @@ public class CalculateForumStatisticsTestSuite {
         testCounter++;
         System.out.println("Preparing to execute test No." + testCounter);
         statisticsMock = mock(Statistics.class);
-        calculate = new CalculateForumStatistics();
-    }
+        calculate = new CalculateForumStatistics(statisticsMock);
+        }
 
     @After
     public void after() {
         System.out.println("Test No. " + testCounter + " end.");
-
     }
 
     @Test

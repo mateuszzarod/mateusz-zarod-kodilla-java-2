@@ -7,7 +7,9 @@ public class CalculateForumStatistics {
     private double avgCommentPerUser;
     private double avgCommentPerPost;
 
-    public CalculateForumStatistics() {
+
+    public CalculateForumStatistics(Statistics statistics) {
+
     }
 
     public int getNumberOfUsers() {
