@@ -28,11 +28,20 @@ public class StreamMain {
 
         PoemBeautifier poemBeautifier = new PoemBeautifier();
 
-        poemBeautifier.beautify("Basic text to Beautify", "AAA", (basicText, textToBeautify) -> (basicText + textToBeautify));
-        poemBeautifier.beautify("Basic text to Beautify 2", "OMGOMGOMG", (basicText, textToBeautify) -> (textToBeautify + basicText));
-        poemBeautifier.beautify("basic text to Beautify", "OMGOMG", (basicText, textToBeautify) -> basicText.toUpperCase());
-        poemBeautifier.beautify("basic text to Beautify", "OMGOMG", (basicText, textToBeautify) -> basicText.replace('a', 'X'));
-        poemBeautifier.beautify("basic text to Beautify", "OMGOMG", (basicText, textToBeautify) -> basicText.replace('a', 'X').toUpperCase());
-        poemBeautifier.beautify("basic text to Beautify", "OMGOMG", (basicText, textToBeautify) -> basicText.replace('a', 'X').replace('x', 'y').toUpperCase());
+        //Wywaliłem agrument i ograniczyłem do jednej metody
+        //metoda zwraca String
+        //tutaj po prostu przypisuję do zmiennej poem1 i wypisuję ją
+        //ale nie wiem jak jest "czyściej" - czy do lambdy dodać dodatkową linijkę i zrobić tam System.out.println?
+
+        String poem1 = poemBeautifier.beautify("Basic text to Beautify", (basicText) -> (basicText + "ABC"));
+        System.out.println(poem1);
+        String poem2 = poemBeautifier.beautify("Basic text to Beautify", (basicText) -> ("ABC" + basicText + "ABC"));
+        System.out.println(poem2);
+        String poem3 = poemBeautifier.beautify("Basic text to Beautify", (basicText) -> (basicText.toUpperCase()));
+        System.out.println(poem3);
+        String poem4 = poemBeautifier.beautify("Basic text to Beautify", (basicText) -> (basicText.replace('a', 'X').toLowerCase()));
+        System.out.println(poem4);
+
+
     }
 }
