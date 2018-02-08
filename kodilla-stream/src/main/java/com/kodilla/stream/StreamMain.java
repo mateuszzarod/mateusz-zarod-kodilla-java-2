@@ -34,7 +34,7 @@ public class StreamMain {
 
         Map<Integer, ForumUser> theResultMapofUsers = forum.getUserList().stream()
                 .filter(forumUser -> forumUser.getGender() != 'F')
-                .filter(forumUser -> forumUser.getDateOfBirth().getYear() < 1998)// nie jestem tylko z tego zadowolony, ale pocztyam dokuemtację i to przerobię
+                .filter(forumUser -> forumUser.getDateOfBirth().plusYears(20).isBefore(LocalDate.now()))
                 .filter(forumUser -> forumUser.getNumberOfPosts() >= 1)
                 .collect(Collectors.toMap(ForumUser::getUserID, forumUser -> forumUser));
 
@@ -42,10 +42,6 @@ public class StreamMain {
         theResultMapofUsers.entrySet().stream()
                 .map(entry -> entry.getKey() + ": " + entry.getValue())
                 .forEach(System.out::println);
-
-
-
-
 
     /* BookDirectory
       BookDirectory theBookDirectory = new BookDirectory();
