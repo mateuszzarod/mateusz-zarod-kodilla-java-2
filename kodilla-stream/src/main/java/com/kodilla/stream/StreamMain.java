@@ -3,14 +3,29 @@ import com.kodilla.stream.book.Book;
 import com.kodilla.stream.book.BookDirectory;
 import com.kodilla.stream.forumuser.Forum;
 import com.kodilla.stream.forumuser.ForumUser;
+import com.kodilla.stream.world.Continent;
+import com.kodilla.stream.world.Country;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
 public class StreamMain {
     public static void main(String[] args) {
+
+        List<Country> countries = new ArrayList<>();
+        countries.add(new Country("Poland", BigDecimal.valueOf(1000)));
+        countries.add(new Country("Italy", BigDecimal.valueOf(2000)));
+        countries.add(new Country("Germany", BigDecimal.valueOf(3000)));
+
+        Continent europe = new Continent("Europe", countries);
+
+
+
+
 
 /*        zainicjuje strumień Stream przy pomocy metody stream() kolekcji
         odfiltruje tylko tych użytkowników, którzy są mężczyznami

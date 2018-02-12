@@ -37,7 +37,7 @@ public class World {
                 '}';
     }
 
-    BigDecimal getPeopleQuantity(){
+    public BigDecimal getPeopleQuantity(){
         return continentsOnWorld.stream()
                 .flatMap(continent -> continent.getCountryOnContinent().stream())
                 .map(Country::getPeopleQuantity)
