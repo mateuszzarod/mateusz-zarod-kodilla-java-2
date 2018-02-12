@@ -1,0 +1,19 @@
+package com.kodilla.stream.array;
+
+import org.junit.Assert;
+import org.junit.Test;
+
+import static org.junit.Assert.*;
+
+public class ArrayOperationsImpTest {
+
+    @Test
+    public void ArrayOperationsImpTest() {
+        //Given
+        ArrayOperations operations = new ArrayOperationsImp();
+        //When
+        double result = operations.getAverage(new int[]{100,100});
+        //Then
+        Assert.assertEquals(100, result, 0.1);
+    }
+}
