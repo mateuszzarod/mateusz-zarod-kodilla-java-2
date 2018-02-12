@@ -12,8 +12,8 @@ public class ArrayOperationsImpTest {
         //Given
         ArrayOperations operations = new ArrayOperationsImp();
         //When
-        double result = operations.getAverage(new int[]{100,100});
+        double result1 = operations.getAverage(new int[]{100,100});
         //Then
-        Assert.assertEquals(100, result, 0.1);
+        Assert.assertEquals(100, result1, 0.1);
     }
 }
