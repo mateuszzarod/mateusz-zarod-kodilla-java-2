@@ -144,7 +144,6 @@ public class BoardTestSuite {
 
         //Then
         Assert.assertEquals(2, longTasks);
-
     }
 
     @Test
@@ -154,23 +153,20 @@ public class BoardTestSuite {
 
         //When
         List<TaskList> inProgressTasks = new ArrayList<>();
-        double sumOfDays = project.getTaskLists().stream()
-                .filter(inProgressTasks::contains)
+        inProgressTasks.add(new TaskList("In progress"));//dodałem listę, ale tutaj trochę przyjałem założenia z modułu - tworzę tutaj roboczą listę zadań, dodaję tam dwie pustą listę o nazwie zgodnej z tą, w której przechowujemy zadania,
+                                                              // tego trochę nie rozumiem (potrzebuję czasu ;),  dlatego tutaj w argumencie nie mogę się odwołać do taskListInProgress z linii 66 - przecież w Given importuję sobie dane testowe,
+                                                              //tylko muszę pisać taką samą nazwę, którą porówna potem equals
+        double averageOfDays = project.getTaskLists().stream() //zmieniłem nazwę - powinna odpowiadać w sumie temu co robimy na samym końcu z tym strumieniem czyli obliczamy średnią
+                .filter(inProgressTasks::contains) //tutaj wskazuję referencję do metody inProgressTasks, żeby zwróciło mi utworzoną w 156 listę i odfiltrowało te listy , które mają jakieś zadania w trakcie
+                                                   // inaczej wychodzi mi w asercji inny wynik - i też nie wiem dlaczego ;)
                 .flatMap(taskList -> taskList.getTasks().stream())
                 .map(n -> n.getCreated())
-                .filter(d -> d.compareTo(LocalDate.now()) <= 0) //Kamil czy ten filtr jest konieczny tzn. ja go napisałem żeby nie przepuścił żadnego zadania o długości 0
-                .mapToDouble(d -> d.until(LocalDate.now(), ChronoUnit.DAYS)) //tutaj musiałem poczytać dokumentację ale chciałem żeby mi przekształcił map z l. 159 na jakiś typ liczbowy, żeby móc dokonać average
-                .average(); // nie wiem dlaczego tu mi nie działa - z jednej strony jak zrobię tak jak sugeruje mi intellij (zmienie typ sumOfDays na optional Double to mi przestają działać testy,
+                .mapToDouble(d -> d.until(LocalDate.now(), ChronoUnit.DAYS))
+                .average()
+                .orElse(0); //czyli rozumiem że Optional Double to taki kontener, któremy musimy pokazać, co zrobić, gdy zawiera lub nie zawiera double - stąd trzeba dopisać, że gdyby nie było doubla musi zwrócić 0
+
 
         //then
-        Assert.assertEquals(10, sumOfDays, 0); // przy zmianie sumOfDays na OptionalDouble (tak jak sugeruje Intellij), próbowałem rzutować zmienna sum of Days w aserdji, na Optional Double ale też nie działa)
+        Assert.assertEquals(10, averageOfDays, 0);
     }
-
-    /*Celem zadania jest
-    Do jego wykonania można użyć dwóch strumieni - jeden aby obliczyć sumę,
-    a drugi aby obliczyć ilość elementów.
-    Lub wersja trudna (z gwiazdką :) ) - należy wykorzystać kolektor skalarny average().
-    */
-
-
 }
