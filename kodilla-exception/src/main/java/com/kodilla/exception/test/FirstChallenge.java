@@ -2,6 +2,10 @@ package com.kodilla.exception.test;
 
 public class FirstChallenge {
 
+    //Kamil czy dobrze rozumiem, że w tej metodzie rzucanie wyjątku jest "dopisane"
+    // bo normalnie przy zmiennych typu double i dzieleniu przez zero zwróci niskończoność?
+
+
     public double divide(double a, double b) throws ArithmeticException {
         if(b == 0){
             throw new ArithmeticException();
@@ -24,7 +28,8 @@ public class FirstChallenge {
             System.out.println("End of try block");
 
         }
-        catch(ArithmeticException e){
+        catch(ArithmeticException e){ //nie wiem czemu, gdy wpiszę normalne wartości, przechodzi do finally,
+            // gdy wpiszę zero nie przechodzi wogóle do try, tylko program się nie kompiluje
 
             System.out.println("ArithmeticException ocurred in bloc catch" + e);
             System.out.println("You should not divide by zero");
