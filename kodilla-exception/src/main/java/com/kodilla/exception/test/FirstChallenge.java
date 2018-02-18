@@ -7,43 +7,39 @@ public class FirstChallenge {
 
 
     public double divide(double a, double b) throws ArithmeticException {
-        if(b == 0){
-            throw new ArithmeticException();
+        try{
+            if (b == 0) {
+                throw new ArithmeticException();
+            }
+            return a / b;
+        } catch (ArithmeticException e){
+            System.out.println("ArithmeticException ocurred in bloc catch " + e);
+            return 0;
         }
-        return a / b;
+        finally {
+            System.out.println("Remember not to divide by 0" );
+        }
     }
+
 
     /**
      * This main can throw an ArithmeticException!!!
+     *
      * @param args
      */
     public static void main(String[] args) {
 
         FirstChallenge firstChallenge = new FirstChallenge();
-        double result = firstChallenge.divide(3, 0);
-        System.out.println(result);
 
-        try{
-
+        try {
+            double result = firstChallenge.divide(3, 0);
+            System.out.println(result);
             System.out.println("End of try block");
-
-        }
-        catch(ArithmeticException e){ //nie wiem czemu, gdy wpiszę normalne wartości, przechodzi do finally,
-            // gdy wpiszę zero nie przechodzi wogóle do try, tylko program się nie kompiluje
-
-            System.out.println("ArithmeticException ocurred in bloc catch" + e);
+        } catch (ArithmeticException e) {
             System.out.println("You should not divide by zero");
-
+            System.out.println("ArithmeticException ocurred in bloc catch " + e);
         } finally {
-
-            System.out.println("Remember not to divide by 0" + "/n The result is: " + result);
+            System.out.println("Remember not to divide by 0" );
         }
-
     }
 }
-
-//
-//Zauważ, że metoda divide(double a, double b), rzuci wyjątkiem jeżeli będziemy chcieli podzielić przez 0.
-// Wykorzystując blok try-catch-finally obsłuż rzucany wyjątek.
-//
-//Link do repozytorium wklej poniżej i wyślij do mentora. Powodzenia!
