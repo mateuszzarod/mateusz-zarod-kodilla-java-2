@@ -16,17 +16,24 @@ public class FirstChallenge {
     public static void main(String[] args) {
 
         FirstChallenge firstChallenge = new FirstChallenge();
+        double result = firstChallenge.divide(3, 0);
+        System.out.println(result);
 
         try{
-            double result = firstChallenge.divide(3, 0);
-            System.out.println(result);
+
             System.out.println("End of try block");
+
         }
         catch(ArithmeticException e){
-            System.out.println("ArithmeticException ocurred in bloc catch");
+
+            System.out.println("ArithmeticException ocurred in bloc catch" + e);
             System.out.println("You should not divide by zero");
+
+        } finally {
+
+            System.out.println("Remember not to divide by 0" + "/n The result is: " + result);
         }
-        System.out.println("I have finished try catch");
+
     }
 }
 
