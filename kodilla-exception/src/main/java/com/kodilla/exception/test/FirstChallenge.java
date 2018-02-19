@@ -5,7 +5,6 @@ public class FirstChallenge {
     //Kamil czy dobrze rozumiem, że w tej metodzie rzucanie wyjątku jest "dopisane"
     // bo normalnie przy zmiennych typu double i dzieleniu przez zero zwróci niskończoność?
 
-
     public double divide(double a, double b) throws ArithmeticException {
         try{
             if (b == 0) {
@@ -41,5 +40,4 @@ public class FirstChallenge {
         } finally {
             System.out.println("Remember not to divide by 0" );
         }
-    }
-}
+    } }
