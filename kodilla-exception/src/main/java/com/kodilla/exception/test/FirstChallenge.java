@@ -11,6 +11,7 @@ public class FirstChallenge {
                 throw new ArithmeticException();
             }
             return a / b;
+
         } catch (ArithmeticException e){
             System.out.println("ArithmeticException ocurred in bloc catch " + e);
             return 0;
@@ -30,7 +31,31 @@ public class FirstChallenge {
 
         FirstChallenge firstChallenge = new FirstChallenge();
 
-        try {
+        Flight flight = new Flight("Warsaw", "Tokyo");
+        Flight flight1 = new Flight("Berlin", "Bergen");
+        Flight flight2 = new Flight("Toronto", "New York");
+        Flight flight3 = new Flight("Warsaw", "Berlin");
+
+
+
+        FlightLogic flightLogic = new FlightLogic();
+        flightLogic.addNewFlight(flight);
+        flightLogic.addNewFlight(flight1);
+        flightLogic.addNewFlight(flight2);
+        flightLogic.addNewFlight(flight3);
+
+
+        try{
+            flightLogic.findFlight(flight1);
+        }catch (RouteNotFoundException e){
+            System.out.println("OH NO! Flight to " + flight.getArrivalAirport() + "is not supported");
+        }
+
+
+
+
+
+        /*try {
             double result = firstChallenge.divide(3, 0);
             System.out.println(result);
             System.out.println("End of try block");
@@ -39,5 +64,10 @@ public class FirstChallenge {
             System.out.println("ArithmeticException ocurred in bloc catch " + e);
         } finally {
             System.out.println("Remember not to divide by 0" );
-        }
-    } }
+        }*/
+    }
+
+
+
+
+}

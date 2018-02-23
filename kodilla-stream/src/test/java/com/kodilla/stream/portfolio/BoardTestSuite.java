@@ -15,6 +15,9 @@ import java.util.OptionalDouble;
 import static java.util.stream.Collectors.toList;
 
 public class BoardTestSuite {
+
+    public static final String IN_PROGRESS = "In progress";
+
     public Board prepareTestData() {
         //users
         User user1 = new User("developer1", "John Smith");
@@ -63,10 +66,12 @@ public class BoardTestSuite {
         TaskList taskListToDo = new TaskList("To do");
         taskListToDo.addTask(task1);
         taskListToDo.addTask(task3);
-        TaskList taskListInProgress = new TaskList("In progress");
+
+        TaskList taskListInProgress = new TaskList(IN_PROGRESS);
         taskListInProgress.addTask(task5);
         taskListInProgress.addTask(task4);
         taskListInProgress.addTask(task2);
+
         TaskList taskListDone = new TaskList("Done");
         taskListDone.addTask(task6);
         //board
@@ -152,21 +157,24 @@ public class BoardTestSuite {
         Board project = prepareTestData();
 
         //When
-        List<TaskList> inProgressTasks = new ArrayList<>();
-        inProgressTasks.add(new TaskList("In progress"));//dodałem listę, ale tutaj trochę przyjałem założenia z modułu - tworzę tutaj roboczą listę zadań, dodaję tam dwie pustą listę o nazwie zgodnej z tą, w której przechowujemy zadania,
-                                                              // tego trochę nie rozumiem (potrzebuję czasu ;),  dlatego tutaj w argumencie nie mogę się odwołać do taskListInProgress z linii 66 - przecież w Given importuję sobie dane testowe,
-                                                              //tylko muszę pisać taką samą nazwę, którą porówna potem equals
-        double averageOfDays = project.getTaskLists().stream() //zmieniłem nazwę - powinna odpowiadać w sumie temu co robimy na samym końcu z tym strumieniem czyli obliczamy średnią
-                .filter(inProgressTasks::contains) //tutaj wskazuję referencję do metody inProgressTasks, żeby zwróciło mi utworzoną w 156 listę i odfiltrowało te listy , które mają jakieś zadania w trakcie
-                                                   // inaczej wychodzi mi w asercji inny wynik - i też nie wiem dlaczego ;)
+
+
+        project.getTaskLists().stream()
+                .filter(taskList -> taskList.getName().equals(IN_PROGRESS))
+                .flatMap(taskList -> taskList.getTasks().stream())
+                .count();
+
+
+        Double averageOfDays = project.getTaskLists().stream()
+
+                .filter(taskList -> taskList.getName().equals(IN_PROGRESS))
                 .flatMap(taskList -> taskList.getTasks().stream())
                 .map(n -> n.getCreated())
                 .mapToDouble(d -> d.until(LocalDate.now(), ChronoUnit.DAYS))
                 .average()
-                .orElse(0); //czyli rozumiem że Optional Double to taki kontener, któremy musimy pokazać, co zrobić, gdy zawiera lub nie zawiera double - stąd trzeba dopisać, że gdyby nie było doubla musi zwrócić 0
-
+                .orElse(Double.NaN);
 
         //then
-        Assert.assertEquals(10, averageOfDays, 0);
+        Assert.assertEquals(10, averageOfDays, 0.1);
     }
 }
