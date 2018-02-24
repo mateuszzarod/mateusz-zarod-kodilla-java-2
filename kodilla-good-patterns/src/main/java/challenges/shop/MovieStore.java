@@ -1,4 +1,4 @@
-package challenges;
+package challenges.shop;
 
 import java.util.ArrayList;
 import java.util.HashMap;
