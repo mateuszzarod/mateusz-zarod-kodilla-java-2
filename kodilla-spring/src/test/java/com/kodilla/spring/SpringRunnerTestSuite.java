@@ -50,7 +50,7 @@ public class SpringRunnerTestSuite {
 		//When
 		String name = shape.getShapeName();
 		//Then
-		Assert.assertEquals("This is a square.", name);
+		Assert.assertEquals("This is a Square", name);
 	}
 
 }
