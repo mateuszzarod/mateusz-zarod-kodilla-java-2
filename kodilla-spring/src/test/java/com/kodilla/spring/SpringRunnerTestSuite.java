@@ -1,5 +1,6 @@
 package com.kodilla.spring;
 
+import com.kodilla.spring.forum.ForumUser;
 import com.kodilla.spring.shape.Circle;
 import com.kodilla.spring.shape.Shape;
 import com.kodilla.spring.shape.Square;
