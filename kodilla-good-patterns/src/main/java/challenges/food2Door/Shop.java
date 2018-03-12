@@ -1,7 +1,7 @@
 package challenges.food2Door;
 
 public interface Shop {
-    OrderDetails getorderDetails (ShoppingCart shoppingCart);
+    OrderDetails orderDetails(ShoppingCart shoppingCart);
     boolean process(OrderDetails orderDetails);
 
     //bierze OrderDeatils

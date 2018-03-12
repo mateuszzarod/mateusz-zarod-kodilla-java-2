@@ -18,14 +18,17 @@ public class Product {
     }
 
     public String getName() {
+
         return name;
     }
 
     public double getQuantity() {
+
         return quantity;
     }
 
     public challenges.food2Door.Shop getShop() {
+
         return Shop;
     }
 

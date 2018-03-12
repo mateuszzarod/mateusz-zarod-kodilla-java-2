@@ -53,15 +53,11 @@ Firma “Food2Door” zajmuje się dystrybucją lokalnych i świeżych produktó
 public class Aplication {
 
     public static void main(String[] args) {
+        ShoppingCart shoppingCart = new ShoppingCart(null);//dopisz
+        OrderService orderService = new OrderService(null);
 
-        Product product = new Product("ogorek", 2, new ExtraFoodShop());
-        Product product1 = new Product("ser", 2, new ExtraFoodShop());
-
-
-
-
-
-
+        orderService.makeOrder(shoppingCart);
+        //do zmiennej + sout
 
     }
 

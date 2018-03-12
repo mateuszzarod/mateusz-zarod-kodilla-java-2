@@ -27,6 +27,7 @@ public class ShoppingCart {
     }
 
     public List<Product> getCart() {
+
         return cart;
     }
 
