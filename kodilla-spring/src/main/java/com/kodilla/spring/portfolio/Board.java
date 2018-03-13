@@ -1,8 +1,10 @@
 package com.kodilla.spring.portfolio;
-
 import java.util.List;
 
 public class Board {
+
+    //ok
+
     TaskList todoList;
     TaskList inProgressList;
     TaskList doneList;
@@ -13,19 +15,16 @@ public class Board {
         this.doneList = doneList;
     }
 
-    public String showToDoList(){
-        return ("List of tasks to do is: " + todoList.getTasks());
+    public TaskList getToDoList() {
+        return todoList;
     }
 
-    public String showInPorgressList(){
-        return ("List of tasks in progress is: " + inProgressList.getTasks());
+    public TaskList getInProgressList() {
+        return inProgressList;
     }
 
-    public String showDoneList(){
-        return ("List of tasks done is: " + doneList.getTasks());
+    public TaskList getDoneList() {
+        return doneList;
     }
-
-
-
 
 }

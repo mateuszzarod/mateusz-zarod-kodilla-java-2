@@ -31,45 +31,24 @@ Celem zadania jest stworzenie klasy Board reprezentującej tablicę z listami za
 @Configuration
 public class BoardConfig {
 
-    @Autowired
-    @Qualifier("ToDoList")
-    TaskList taskList;
-
-    @Autowired
-    @Qualifier("InProgressList")
-    TaskList inProgressList;
-
-    @Autowired
-    @Qualifier("DoneList")
-    TaskList doneList;
-
     @Bean
     public Board board() {
-        return new Board(taskList, inProgressList, doneList);
+        return new Board(getToDoList(), getInProgressList(), getDoneList());
     }
 
     @Bean(name = "ToDoList")
-    @Scope("prototype")
     public TaskList getToDoList() {
-        List<String> toDoTasks = new ArrayList<>();
-        toDoTasks.add("Task nr 11");
-        return new TaskList(toDoTasks);
+        return new TaskList();
     }
 
     @Bean(name = "InProgressList")
-    @Scope("prototype")
     public TaskList getInProgressList() {
-        List<String> inProgressTasks = new ArrayList<>();
-        inProgressTasks.add("Task nr 22");
-        return new TaskList(inProgressTasks);
+        return new TaskList();
     }
 
     @Bean(name = "DoneList")
-    @Scope("prototype")
     public TaskList getDoneList() {
-        List<String> doneList = new ArrayList<>();
-        doneList.add("Task nr 33");
-        return new TaskList(doneList);
+        return new TaskList();
     }
 
 }
