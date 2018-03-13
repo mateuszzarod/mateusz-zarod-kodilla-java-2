@@ -5,16 +5,17 @@ import java.util.Objects;
 public class Product {
     private String name;
     private double quantity;
-    private Shop Shop;
+    private Shop shop;
 
     //nie mogę zrozumieć, dlaczego nie mogę tutaj jako argument przesłać Shop Shop
     //intellij tworzy mi taki konstruktor domyslnie chciałem, żeby stworzyć produkt który ma pola
     //nazwa, ilość, producent (Shop)
 
-    public Product(String name, double quantity, challenges.food2Door.Shop shop) {
+
+    public Product(String name, double quantity, Shop shop) {
         this.name = name;
         this.quantity = quantity;
-        Shop = shop;
+        this.shop = shop;
     }
 
     public String getName() {
@@ -27,9 +28,8 @@ public class Product {
         return quantity;
     }
 
-    public challenges.food2Door.Shop getShop() {
-
-        return Shop;
+    public Shop getShop() {
+        return shop;
     }
 
     @Override

@@ -26,6 +26,7 @@ public class OrderDetails {
     }
 
     public List<Product> getProducts() {
+
         return products;
     }
 

@@ -14,22 +14,15 @@ Firma “Food2Door” zajmuje się dystrybucją lokalnych i świeżych produktó
         zagadnienie do rozwiązania w następujący sposób:
 
         “Hej, słuchaj mamy taki problem - mamy już trzech producentów jedzenia:
-
-
         ExtraFoodShop,
         HealthyShop,
         GlutenFreeShop.
-
         Na horyzoncie pojawiają się nowe firmy, które chcą dołączyć do naszego łańcucha dostaw, niestety kodowanie procesu
         zamawiania dla każdego z dystrybutorów jest bardzo żmudne i do tego kod się wciąż powtarza.
 
 
         interfej Shop
         OrderProcess(Shop)
-
-
-        Wszyscy z tych producentów różnią się nieco implementacją, jednakże schemat zamawiania przebiega następująco:
-
 
         1 metoda
         Pobieramy informacje o dostawcy (producent jedzenia) , oraz
@@ -50,14 +43,26 @@ Firma “Food2Door” zajmuje się dystrybucją lokalnych i świeżych produktó
 
 */
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Aplication {
 
     public static void main(String[] args) {
-        ShoppingCart shoppingCart = new ShoppingCart(null);//dopisz
+
+        Shop shop1 = new ExtraFoodShop("ExtraFood");
+        Shop shop2 = new HealthyShop("HealthyFood");
+        List<Product> listOfProducts = new ArrayList<>();
+        listOfProducts.add("carrot", 10, shop1);
+
+
+
+        ShoppingCart shoppingCart = new ShoppingCart();
         OrderService orderService = new OrderService(null);
 
-        orderService.makeOrder(shoppingCart);
-        //do zmiennej + sout
+
+        OrderSummary order = orderService.makeOrder(shoppingCart);
+        System.out.println(order);
 
     }
 

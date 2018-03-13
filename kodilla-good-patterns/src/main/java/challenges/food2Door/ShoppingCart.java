@@ -11,13 +11,13 @@ public class ShoppingCart {
 
     private List<Product> cart;
 
-
     public List<Product> addToShoppingCart(Product product){
         cart.add(product);
         return cart;
     }
 
     public ShoppingCart(List<Product> cart) {
+
         this.cart = cart;
     }
 

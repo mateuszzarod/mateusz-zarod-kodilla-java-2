@@ -9,6 +9,7 @@ public class OrderService {
     List<Shop> shops;
 
     public OrderService(List<Shop> shops) {
+
         this.shops = shops;
     }
 
@@ -28,14 +29,5 @@ public class OrderService {
         return orderDetails;
     }
 
-   /* public boolean isOrdered(List<Product> product, Shop shop, boolean service) {
-        if (service) {
-            System.out.println(shop+ "\n" + product);
-            return true;
-        } else {
-
-            return false;
-        }
-    }*/
 }
 

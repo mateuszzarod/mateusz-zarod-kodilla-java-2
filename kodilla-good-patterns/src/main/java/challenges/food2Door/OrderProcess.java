@@ -5,4 +5,3 @@ public interface OrderProcess {
     public void process ();
 }
 
-//

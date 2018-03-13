@@ -2,16 +2,13 @@ package challenges.food2Door;
 import java.util.List;
 
 
-public class ExtraFoodShop implements Shop {
+public class HealthyShop implements Shop {
 
     private String name;
 
-    public ExtraFoodShop(String name) {
+    public HealthyShop(String name) {
         this.name = name;
     }
-
-    //wyciąga elementy z kosztyka
-    //wyciąga tylko te 'nasze'
 
     @Override
     public OrderDetails orderDetails(ShoppingCart shoppingCart) {
@@ -20,8 +17,7 @@ public class ExtraFoodShop implements Shop {
 
     @Override
     public boolean process(OrderDetails orderDetails) {
-        return true;
+        return false;
     }
-
 }
 
