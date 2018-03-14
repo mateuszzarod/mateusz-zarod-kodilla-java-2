@@ -13,6 +13,8 @@ public class FlightsRoutes {
         flightSet.add(new Flight(City.LUBLIN, City.WARSAW));
         flightSet.add(new Flight(City.KRAKOW, City.LUBLIN));
         flightSet.add(new Flight(City.LUBLIN, City.KRAKOW));
+        flightSet.add(new Flight(City.POZNAN, City.WARSAW));
+        flightSet.add(new Flight(City.WARSAW, City.POZNAN));
 
         return flightSet;
     }

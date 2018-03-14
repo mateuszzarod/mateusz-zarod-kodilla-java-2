@@ -5,36 +5,42 @@ import java.util.stream.Collectors;
 
 public class FlightsSearchEngine {
 
+    //takes all routes and makes list of only those with departure city
     public static List<Flight> flightsFromCity(City departureCity) {
         return FlightsRoutes.getFlightSet().stream()
                 .filter(flight -> flight.getDepartureCity() == departureCity)
                 .collect(Collectors.toList());
     }
 
+    //takes all routes and makes list of only those with arrival city
     public static List<Flight> flightsToCity(City arrivalCity) {
         return FlightsRoutes.getFlightSet().stream()
                 .filter(flight -> flight.getArrivalCity() == arrivalCity)
                 .collect(Collectors.toList());
     }
 
+    //takes from set only those that == departere and arrival
     public static List<Flight> flightDirectly(City departureCity, City arrivalCity) {
         return FlightsRoutes.getFlightSet().stream()
                 .filter(flight -> flight.getDepartureCity().equals(departureCity) && flight.getArrivalCity().equals(arrivalCity))
                 .collect(Collectors.toList());
+    }
 
-        public static List<City> flightWithTransfer(City departureCity, City arrivalCity){
-            List<Flight> transferFly = FlightsSearchEngine.flightsFromCity(departureCity);
-            //dalej pomyślę ;)
-            return null;
+    public static List<Flight> flightWithTransfer(City departureCity, City arrivalCity) {
 
-            //tutaj utknąłem bo nie wiem jak  skonstruować metodę -> tutaj wydaje mi się, że trezba skorzystać z powyższym metod
-            //najpierw do zmiennej transferFly przpisałem metodę wyżej - która szuka lotów z podanego miasta
+        //najpierw sprawdzamy gdzie może być przesiadka wybierając lot z np. z Poznania do Warszaw i
+        //robi listę w jakich miastach może być przesiadka
+        List<Flight> transferFly = FlightsSearchEngine.flightsFromCity(departureCity);
+        List<City> transferFlyArrival = transferFly.stream()
+                .map(flight -> flight.getArrivalCity())
+                .collect(Collectors.toList());
 
-            //i tutaj nie rozumiem polecenia ? to znaczy, czy jeśli nie ma połaczenia z Lublina do Krakowa,
-            // to szuka mi czy jest połączenie z Lublina do Warszawy, a następnie z Warszawy do Krakowa?
-
-            //Znalezienie lotów poprzez inne miasto np. lot z Gdańska przez Kraków do Wrocławia i jak to przetłuamczyć metodzie
-
-        }
+        //następnie sprawdza, czy z tych miast, które wyłoniliśmy w poprzedniej metodzie można
+        // (contain) dolecieć do departure city
+        List<Flight> result = FlightsSearchEngine.flightsToCity(arrivalCity);
+                return result.stream()
+                .filter(flight -> transferFlyArrival.contains(flight.getDepartureCity()))
+                .collect(Collectors.toList());
     }
 }
+

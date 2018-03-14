@@ -1,7 +1,7 @@
 package challenges.flights;
 
 import java.util.Objects;
-
+//piszę komentarz, żeby móc wrzucić tę klasę na gita ;)
 public class Flight {
         private City departureCity;
         private City arrivalCity;
