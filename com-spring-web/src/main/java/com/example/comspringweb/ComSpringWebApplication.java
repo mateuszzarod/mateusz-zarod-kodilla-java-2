@@ -4,7 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 //tu mam działąjący spring web ;)
-//comment for commit ;)
+//comment for commit ;):
 
 @SpringBootApplication
 public class ComSpringWebApplication {
