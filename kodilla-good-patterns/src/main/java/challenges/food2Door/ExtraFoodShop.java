@@ -1,5 +1,6 @@
 package challenges.food2Door;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 public class ExtraFoodShop implements Shop {
@@ -7,6 +8,7 @@ public class ExtraFoodShop implements Shop {
     private String name;
 
     public ExtraFoodShop(String name) {
+
         this.name = name;
     }
 
@@ -15,11 +17,15 @@ public class ExtraFoodShop implements Shop {
 
     @Override
     public OrderDetails orderDetails(ShoppingCart shoppingCart) {
-        return shoppingCart.getCart();
+        OrderDetails shop = shoppingCart.getCart().stream()
+                .filter(product -> product.getShop())
+                .collect(Collectors.toList());
+        return shop;
     }
 
     @Override
     public boolean process(OrderDetails orderDetails) {
+
         return true;
     }
 

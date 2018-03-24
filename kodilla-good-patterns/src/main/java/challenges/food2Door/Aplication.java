@@ -44,26 +44,31 @@ Firma “Food2Door” zajmuje się dystrybucją lokalnych i świeżych produktó
 */
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Aplication {
 
     public static void main(String[] args) {
 
+        //zamawiasz produkty które są od różnych producentów
+        //sklep zamia je od różnych producetnów
+        //wysyła do klienta
+
         Shop shop1 = new ExtraFoodShop("ExtraFood");
         Shop shop2 = new HealthyShop("HealthyFood");
+
         List<Product> listOfProducts = new ArrayList<>();
-        listOfProducts.add("carrot", 10, shop1);
+        listOfProducts.add(new Product("Onion", 3, shop1));
+        listOfProducts.add(new Product("Cucumber", 4, shop2));
+        listOfProducts.add(new Product("BIO", 10, shop2));
+        listOfProducts.add(new Product("Wheat", 5, shop1));
 
-
-
-        ShoppingCart shoppingCart = new ShoppingCart();
-        OrderService orderService = new OrderService(null);
-
+        ShoppingCart shoppingCart = new ShoppingCart(listOfProducts);
+        OrderService orderService = new OrderService(Arrays.asList(shop1, shop2));
 
         OrderSummary order = orderService.makeOrder(shoppingCart);
         System.out.println(order);
 
     }
-
 }
