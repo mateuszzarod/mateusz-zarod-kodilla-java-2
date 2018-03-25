@@ -12,14 +12,23 @@ public class HealthyShop implements Shop {
         this.name = name;
     }
 
+    public String getName() {
+        return name;
+    }
+
     @Override
     public OrderDetails orderDetails(ShoppingCart shoppingCart) {
-        OrderDetails shop = shoppingCart.getCart().stream()
-                .filter(product -> product.getShop())
-                .collect(Collectors.toList());
-        return shop;
-        //jakiego koelktora użyć, na końcu, żeby zebrać te elementy należące do danego sklepu - to list jest ok?
-        //nie wiem dlaczego pisze mi tutaj, że nie może przekonwertować na boolean
+
+        filterShop(shoppingCart);
+    }
+
+    //tutaj jeszcze nie wiem jak ta metoda ma zwrócić obiekt typu OrderDetails
+    //dodałem w tej klasie getter i stream porównuje mi nazwe sklepu z koszyka
+    // z nazwą implementacji klasy shop (getter) czy można tutaj użyć np. this?
+
+    private void filterShop(ShoppingCart shoppingCart) {
+        shoppingCart.getCart().stream()
+                .filter(product -> product.getShop().equals(getName()));
     }
 
     @Override
