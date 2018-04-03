@@ -5,6 +5,10 @@ import java.util.stream.Collectors;
 
 public class FlightsSearchEngine {
 
+    //TODO
+    //private static Set<Flight> flightSet = new HashSet<>();
+    //w konstruktor FligsSearchEngine
+
     //takes all routes and makes list of only those with departure city
     public static List<Flight> flightsFromCity(City departureCity) {
         return FlightsRoutes.getFlightSet().stream()
