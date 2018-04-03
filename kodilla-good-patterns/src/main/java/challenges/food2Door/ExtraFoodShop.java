@@ -22,13 +22,8 @@ public class ExtraFoodShop implements Shop {
     @Override
     public OrderDetails orderDetails(ShoppingCart shoppingCart) {
 
-        filterShop(shoppingCart);
-    }
-
-    private void filterShop(ShoppingCart shoppingCart) {
-        shoppingCart.getCart().stream()
-                .filter(product -> product.getShop().equals(getName()));
-                //nie wiem czy tutaj trzeba jakąś operację terminalną
+        List<Product> result = filterShop(shoppingCart);
+        return new OrderDetails(this.name, result);
 
     }
 
@@ -36,13 +31,17 @@ public class ExtraFoodShop implements Shop {
     //dodałem w tej klasie getter i stream porównuje mi nazwe sklepu z koszyka
     // z nazwą implementacji klasy shop (getter) czy można tutaj użyć np. this?
 
-
+    private List<Product> filterShop(ShoppingCart shoppingCart) {
+        List<Product> result = shoppingCart.getCart().stream()
+                .filter(product -> product.getShop().equals(getName()))
+                .collect(Collectors.toList());
+        return result;
+    }
 
     @Override
     public boolean process(OrderDetails orderDetails) {
 
         return true;
     }
-
 }
 

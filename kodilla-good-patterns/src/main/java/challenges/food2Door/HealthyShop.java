@@ -19,16 +19,20 @@ public class HealthyShop implements Shop {
     @Override
     public OrderDetails orderDetails(ShoppingCart shoppingCart) {
 
-        filterShop(shoppingCart);
+        List<Product> result = filterShop(shoppingCart);
+        return new OrderDetails(this.name, result);
+
     }
 
     //tutaj jeszcze nie wiem jak ta metoda ma zwrócić obiekt typu OrderDetails
     //dodałem w tej klasie getter i stream porównuje mi nazwe sklepu z koszyka
     // z nazwą implementacji klasy shop (getter) czy można tutaj użyć np. this?
 
-    private void filterShop(ShoppingCart shoppingCart) {
-        shoppingCart.getCart().stream()
-                .filter(product -> product.getShop().equals(getName()));
+    private List<Product> filterShop(ShoppingCart shoppingCart) {
+        List<Product> result = shoppingCart.getCart().stream()
+                .filter(product -> product.getShop().equals(getName()))
+                .collect(Collectors.toList());
+        return result;
     }
 
     @Override
