@@ -11,6 +11,25 @@ public final class Task {
     private String description;
     private Date created;
     private int duration;
+    TaskFinancialDetails taskFinancialDetails;
+    //to pole pozwala utworzyć referencję do obiektu
+    // i relacje między encjami
+
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    //kasakada działa w dwie strony - dodawanie i odejmowanie
+    //relacja jeden do jednego
+    //fetch - określa czy podczas wczytywania encji Task z bazy danych
+    // mają być automatycznie odczytywane
+    // ("dociągane") wszystkie zależne rekordy z tabeli TASK_FINANCIALS
+    @JoinColumn(name = "TASK_FINANCIALS_ID")
+    //kolumna z kluczem obcym do tabeli
+    public TaskFinancialDetails getTaskFinancialDetails() {
+        return taskFinancialDetails;
+    }
+
+    public void setTaskFinancialDetails(TaskFinancialDetails taskFinancialDetails) {
+        this.taskFinancialDetails = taskFinancialDetails;
+    }
 
     public Task() {
     }
