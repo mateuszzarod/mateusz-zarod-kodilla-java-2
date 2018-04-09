@@ -6,7 +6,7 @@ import org.junit.Test;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
+//Zadanie 12.6
 public class DbManagerTestSuite {
     @Test
     public void testConnect() throws SQLException {
