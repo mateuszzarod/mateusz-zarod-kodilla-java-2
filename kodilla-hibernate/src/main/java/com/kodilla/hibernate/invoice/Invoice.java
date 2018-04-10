@@ -34,24 +34,19 @@ public class Invoice {
         return number;
     }
 
-    //dlaczego tu nie zadziałał domyślny konstruktor
-    //tylko potrzeba było argumentu Item item??
-    public List<Item> getItems(Item item) {
-        return items;
-    }
-
     @OneToMany(
             targetEntity = Item.class,
             cascade = CascadeType.ALL,
             fetch = FetchType.LAZY,
-            mappedBy = "invoice"
+            mappedBy = "invoices"
     )
-
+    public List<Item> getItems() {
+        return items;
+    }
 
     public void setId(int id) {
         this.id = id;
     }
-
 
     public void setItems(List<Item> items) {
         this.items = items;

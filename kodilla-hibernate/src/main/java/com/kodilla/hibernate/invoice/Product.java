@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "INVOICE")
+@Table(name = "PRODUCT")
 public class Product {
     private int id;
     private String name;
@@ -34,6 +34,7 @@ public class Product {
         return name;
     }
 
+    //sprawdź mapowanie
     @OneToMany(
             targetEntity = Item.class,
             cascade = CascadeType.ALL,
@@ -43,7 +44,6 @@ public class Product {
     public List<Item> getProducts() {
         return products;
     }
-
 
     public void setId(int id) {
         this.id = id;

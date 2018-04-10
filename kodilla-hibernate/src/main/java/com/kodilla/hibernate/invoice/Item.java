@@ -12,7 +12,7 @@ public class Item {
     private int quantity;
     private BigDecimal value;
     private Product product;
-    private Invoice invoice;
+    private Invoice invoices;
 
     public Item(){
 
@@ -26,7 +26,7 @@ public class Item {
     @Id
     @GeneratedValue
     @NotNull
-    @Column(name = "ID", unique = true)
+    @Column(name = "ITEM_ID", unique = true)
     public int getId() {
         return id;
     }
@@ -49,20 +49,22 @@ public class Item {
         return value;
     }
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(
+            cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER)
     @JoinColumn(name = "PRODUCT_ID")
     public Product getProduct() {
         return product;
     }
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "INVOICE_ID")
-    public Invoice getInvoice() {
-        return invoice;
-    }
-
     public void setId(int id) {
         this.id = id;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "INVOICE_ID")
+    public Invoice getInvoices() {
+        return invoices;
     }
 
     public void setPrice(BigDecimal price) {
@@ -81,7 +83,7 @@ public class Item {
         this.product = product;
     }
 
-    public void setInvoice(Invoice invoice) {
-        this.invoice = invoice;
+    public void setInvoices(Invoice invoices) {
+        this.invoices = invoices;
     }
 }

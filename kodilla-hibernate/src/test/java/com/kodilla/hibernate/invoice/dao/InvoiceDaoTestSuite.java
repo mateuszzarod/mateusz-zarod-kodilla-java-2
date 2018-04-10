@@ -13,6 +13,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -23,6 +25,12 @@ public class InvoiceDaoTestSuite {
     private ProductDao productDao;
     @Autowired
     private ItemDao itemDao;
+
+
+    //Invoice - faktura
+    //Items - pozycja faktury
+    //Product - pozycja asortymentu itemsFromProduct
+
 
     @Test
     public void testInvoiceDaoSave() {
@@ -39,30 +47,30 @@ public class InvoiceDaoTestSuite {
 
         item1.setProduct(product1);
         item1.setProduct(product2);
-
-        item2.setProduct(product2);
         item2.setProduct(product3);
+        item3.setProduct(product2);
 
-        item3.setProduct(product3);
-        item3.setProduct(product1);
+        invoice1.setItems(Arrays.asList(item1,item2,item3));
 
-        item1.setInvoice(invoice1);
-        item2.setInvoice(invoice1);
-        item3.setInvoice(invoice1);
+        item1.setInvoices(invoice1);
+        item2.setInvoices(invoice1);
+        item3.setInvoices(invoice1);
 
-        invoice1.getItems(item1);
-        invoice1.getItems(item2);
-        invoice1.getItems(item3);
+        item1.setValue(new BigDecimal(100));
+        item2.setValue(new BigDecimal(10));
+        item3.setValue(new BigDecimal(101));
 
         //When
+        invoiceDao.save(invoice1);
+        int invoice1id = invoice1.getId();
 
-        int invoiceId = invoice1.getId();
-        Invoice readInvoice = invoiceDao.save(invoice1);
         //Then
-        Assert.assertEquals(invoiceId, readInvoice);
+        Invoice readInvoice = invoiceDao.findOne(invoice1id);
+        Assert.assertEquals(invoice1id, readInvoice.getId());
+
         //CleanUp
         try {
-            invoiceDao.delete(invoiceId);
+            invoiceDao.delete(readInvoice.getId());
         } catch (Exception e) {
 
         }
