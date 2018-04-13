@@ -28,6 +28,7 @@ public class Product {
         return id;
     }
 
+
     @NotNull
     @Column(name = "NAME")
     public String getName() {

@@ -11,7 +11,6 @@ public class Item {
     private BigDecimal price;
     private int quantity;
     private BigDecimal value;
-   // tutaj musi być lista
     private Product product;
     private Invoice invoices;
 
