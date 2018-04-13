@@ -10,9 +10,9 @@ import java.util.List;
 public class Product {
     private int id;
     private String name;
-    private List<Item> products = new ArrayList();
+    private List<Item> items = new ArrayList();
 
-    public Product(){
+    public Product() {
 
     }
 
@@ -41,19 +41,23 @@ public class Product {
             fetch = FetchType.LAZY,
             mappedBy = "product"
     )
-    public List<Item> getProducts() {
-        return products;
+    public List<Item> getItems() {
+
+        return items;
     }
 
     public void setId(int id) {
+
         this.id = id;
     }
 
     public void setName(String name) {
+
         this.name = name;
     }
 
-    public void setProducts(List<Item> products) {
-        this.products = products;
+    public void setItems(List<Item> items) {
+
+        this.items = items;
     }
 }

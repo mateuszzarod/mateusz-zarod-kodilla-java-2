@@ -41,20 +41,22 @@ public class Invoice {
             mappedBy = "invoices"
     )
     public List<Item> getItems() {
+
         return items;
     }
 
     public void setId(int id) {
+
         this.id = id;
     }
 
     public void setItems(List<Item> items) {
+
         this.items = items;
     }
 
     public void setNumber(String number) {
+
         this.number = number;
     }
-
-
 }

@@ -11,6 +11,7 @@ public class Item {
     private BigDecimal price;
     private int quantity;
     private BigDecimal value;
+   // tutaj musi być lista
     private Product product;
     private Invoice invoices;
 
@@ -28,18 +29,21 @@ public class Item {
     @NotNull
     @Column(name = "ITEM_ID", unique = true)
     public int getId() {
+
         return id;
     }
 
     @NotNull
     @Column(name = "PRICE")
     public BigDecimal getPrice() {
+
         return price;
     }
 
     @NotNull
     @Column(name = "QUANTITY")
     public int getQuantity() {
+
         return quantity;
     }
 
@@ -54,6 +58,7 @@ public class Item {
             fetch = FetchType.EAGER)
     @JoinColumn(name = "PRODUCT_ID")
     public Product getProduct() {
+
         return product;
     }
 
@@ -64,26 +69,32 @@ public class Item {
     @ManyToOne
     @JoinColumn(name = "INVOICE_ID")
     public Invoice getInvoices() {
+
         return invoices;
     }
 
     public void setPrice(BigDecimal price) {
+
         this.price = price;
     }
 
     public void setQuantity(int quantity) {
+
         this.quantity = quantity;
     }
 
     public void setValue(BigDecimal value) {
+
         this.value = value;
     }
 
     public void setProduct(Product product) {
+
         this.product = product;
     }
 
     public void setInvoices(Invoice invoices) {
+
         this.invoices = invoices;
     }
 }
