@@ -28,7 +28,7 @@ public class ForumUserTestSuite {
     }
 }
 
-
+//done
 /*  Napisz test testGetUsername()
   pobierający z kontekstu aplikacji
   uchwyt do Beana klasy ForumUser.

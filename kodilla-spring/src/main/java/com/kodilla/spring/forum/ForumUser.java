@@ -17,6 +17,8 @@ public class ForumUser {
 
 }
 
+//done
+
 /*    Celem zadania jest stworzenie w Kontenerze Beana klasy ForumUser i jego sprawdzenie w teście. Aby zrealizować zadanie:
 
         W katalogu src/main/java utwórz pakiet com.kodilla.spring.forum
