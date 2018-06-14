@@ -101,7 +101,8 @@ public class CompanyDaoTestSuite {
 
         //When
         List<Employee> retrieveLastNameOfEmployee = employeeDao.retrieveLastNameOfEmployee("Pawlak");
-        List<Company> retrieveFirstThreeChar = companyDao.retrieveFirstThreeChar("Sof%");
+        List<Company> retrieveFirstThreeChar = companyDao.retrieveFirstThreeChar("Sof");
+        //first free
 
         //Then
         try {

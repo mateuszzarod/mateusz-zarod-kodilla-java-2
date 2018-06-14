@@ -1,9 +1,31 @@
 package com.kodilla.hibernate.task;
 
+import com.kodilla.hibernate.tasklist.TaskList;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 
+@NamedQueries({
+        @NamedQuery(
+                name = "Task.retrieveLongTasks",
+                query = "FROM Task WHERE duration > 10"
+        ),
+        @NamedQuery(
+                name = "Task.retrieveShortTasks",
+                query = "FROM Task WHERE duration <= 10"
+        ),
+        @NamedQuery(
+                name = "Task.retrieveTasksWithDurationLongerThen",
+                query = "FROM Task WHERE duration > :DURATION"
+        )
+})
+@NamedNativeQuery(
+        name = "Task.retrieveTasksWithEnoughTime",
+        query = "SELECT * FROM TASKS" +
+                " WHERE DATEDIFF(DATE_ADD(CREATED, INTERVAL DURATION DAY), NOW()) > 5",
+        resultClass = Task.class
+)
 @Entity
 @Table(name = "TASKS")
 public final class Task {
@@ -12,24 +34,19 @@ public final class Task {
     private Date created;
     private int duration;
     TaskFinancialDetails taskFinancialDetails;
+    private TaskList taskList;
+
     //to pole pozwala utworzyć referencję do obiektu
     // i relacje między encjami
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    //kasakada działa w dwie strony - dodawanie i odejmowanie
-    //relacja jeden do jednego
-    //fetch - określa czy podczas wczytywania encji Task z bazy danych
-    // mają być automatycznie odczytywane
-    // ("dociągane") wszystkie zależne rekordy z tabeli TASK_FINANCIALS
+    @OneToOne(
+            cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER)
     @JoinColumn(name = "TASK_FINANCIALS_ID")
-    //kolumna z kluczem obcym do tabeli
     public TaskFinancialDetails getTaskFinancialDetails() {
         return taskFinancialDetails;
     }
 
-    public void setTaskFinancialDetails(TaskFinancialDetails taskFinancialDetails) {
-        this.taskFinancialDetails = taskFinancialDetails;
-    }
 
     public Task() {
     }
@@ -54,15 +71,16 @@ public final class Task {
     }
 
     @NotNull
-    @Column(name="CREATED")
+    @Column(name = "CREATED")
     public Date getCreated() {
         return created;
     }
 
-    @Column(name="DURATION")
+    @Column(name = "DURATION")
     public int getDuration() {
         return duration;
     }
+
 
     private void setId(int id) {
         this.id = id;
@@ -78,5 +96,19 @@ public final class Task {
 
     private void setDuration(int duration) {
         this.duration = duration;
+    }
+
+    public void setTaskFinancialDetails(TaskFinancialDetails taskFinancialDetails) {
+        this.taskFinancialDetails = taskFinancialDetails;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "TASKLIST_ID")
+    public TaskList getTaskList() {
+        return taskList;
+    }
+
+    public void setTaskList(TaskList taskList) {
+        this.taskList = taskList;
     }
 }

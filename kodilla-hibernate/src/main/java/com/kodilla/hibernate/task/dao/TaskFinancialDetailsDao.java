@@ -7,7 +7,8 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 
-//kontroler repozytorium
+//kontroler re
+// pozytorium
 @Transactional
 @Repository
 public interface TaskFinancialDetailsDao extends CrudRepository<TaskFinancialDetails,
