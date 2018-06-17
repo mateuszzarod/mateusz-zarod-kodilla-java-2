@@ -98,7 +98,7 @@ public class ShapeCollectorTestSuite {
     public void testFigureField(){
 
         //Given
-        Square theSquare = new Square(5);
+        Square theSquare = new Square(5.5);
         Triangle theTriangle = new Triangle(5);
         Circle theCircle = new Circle(5);
 
@@ -107,12 +107,11 @@ public class ShapeCollectorTestSuite {
         double triangleField = theTriangle.getField();
         double circleField = theCircle.getField();
 
+
         //Then
-        //nie wiem jak prawidłowo tutaj napisać assertEquals, dostaję błąd w postaci brakującej DELTY
-        Assert.assertEquals(25, squareField, DELTA);
+        Assert.assertEquals(30.25, squareField, DELTA);
         Assert.assertEquals(10.825317547305483, triangleField, DELTA);
         Assert.assertEquals(78.53975, circleField, DELTA);
-
     }
 }
 

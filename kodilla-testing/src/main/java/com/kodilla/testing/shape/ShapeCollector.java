@@ -16,12 +16,6 @@ public class ShapeCollector {
     public ShapeCollector() {
     }
 
-
-    //Kamil nie rozumie, co znaczy że zwracany typ jest mało ogólny?
-    // może być mniej ogólny?
-    //poprawiłem typ na List zmieniłem nazwę, ale nie wiem jaki typ zwracać bardziej ogólny
-    //czy ta metoda ma pokazywać jakie elementy są na liście figure?
-
     public List<Shape> getFigures() {
         return  figures;
     }
@@ -34,16 +28,17 @@ public class ShapeCollector {
          figures.add(shape);
     }
 
-    //Kamil może trochę przekombinowałem ale chciałem powalczyć z tym boolean
-    // :D ale dałoby się zrobić i metodę i test prościej? :)
 
-    public boolean removeFigure(Shape shape){
+    /*public boolean removeFigure(Shape shape){
         boolean result = false;
         if(figures.contains(shape)){
             figures.remove(shape);
             result = true;
         }
         return result;
+    }*/
+    public boolean removeFigure(Shape shape){
+        return figures.remove(shape);
     }
 
 }
