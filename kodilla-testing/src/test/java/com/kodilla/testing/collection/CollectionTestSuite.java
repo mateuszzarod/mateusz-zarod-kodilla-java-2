@@ -13,7 +13,7 @@ public class CollectionTestSuite {
     }
     @BeforeClass
     public static void beforeClass() {
-        System.out.println("T   est Suite: begin");
+        System.out.println("Test Suite: begin");
     }
     @AfterClass
     public static void afterClass() {
@@ -61,9 +61,11 @@ public class CollectionTestSuite {
 
         //When
         ArrayList<Integer> resultListEvenNumbers = checkList.exterminate(evenNumbers);
+        int searchForNumber = evenNumbers.get(0);
+        boolean result = evenNumbers.contains(searchForNumber);
         //Then
 
         Assert.assertEquals(expectedResult, resultListEvenNumbers);
-    }
-}
+        Assert.assertEquals(2, searchForNumber);
+}}
 
