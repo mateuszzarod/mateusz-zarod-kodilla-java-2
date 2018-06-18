@@ -10,7 +10,8 @@ import java.util.List;
 @NamedNativeQuery(
         name = "Company.retrieveFirstThreeChar",
         //SQL FUNCIONS SUBSTRING
-        query = "SELECT * FROM COMPANIES WHERE FUNCTION(COMPANY_NAME) LIKE :FIRSTTHREECHAR",
+        query = "SELECT * FROM COMPANIES " +
+                "WHERE LEFT (NAME, 3) = :FIRSTTHREECHAR",
         resultClass = Company.class
 )
 
