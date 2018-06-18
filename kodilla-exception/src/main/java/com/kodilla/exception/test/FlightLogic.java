@@ -31,10 +31,10 @@ public class FlightLogic {
     }
 
     public Map<String, List<String>> getFlightMap() {
+
         for(Map.Entry<String, List<String>> entry: flightMap.entrySet()){
             System.out.println(entry.getKey() + " " + entry.getValue());
         }
-
         return flightMap;
     }
 
@@ -54,4 +54,5 @@ public class FlightLogic {
             throw new RouteNotFoundException();
         }
 
-    }}
+    }
+}

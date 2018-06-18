@@ -18,6 +18,7 @@ public class FirstChallenge {
 
     public static void main(String[] args) {
 
+    //Zadanie 8.3
         FirstChallenge firstChallenge = new FirstChallenge();
 
         try {
@@ -30,6 +31,27 @@ public class FirstChallenge {
         } finally {
 
             System.out.println("YOU CAN'T DIVIDE WITH ZERO DUMBASS");
+        }
+
+
+    //Zadanie 8.4
+        FirstChallenge firstChallenge2 = new FirstChallenge();
+
+        Flight flight = new Flight("Warsaw", "Tokyo");
+        Flight flight1 = new Flight("Berlin", "Bergen");
+        Flight flight2 = new Flight("Toronto", "New York");
+        Flight flight3 = new Flight("Warsaw", "Berlin");
+
+
+        FlightLogic flightLogic = new FlightLogic();
+
+        try{
+            flightLogic.findFlight(flight1);
+        }catch (RouteNotFoundException e){
+            System.out.println("OH NO! Flight to " + flight.getArrivalAirport() + "is not supported");
+        } finally {
+            System.out.println("try another direction, we don't support this connection");
+       //     flightLogic.getFlightMap().keySet().stream().forEach(System.out::println);
         }
     }
 }
