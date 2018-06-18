@@ -37,7 +37,7 @@ public class DbManagerTestSuite {
         }
         rs.close();
         statement.close();
-        Assert.assertEquals(5, counter);
+        Assert.assertEquals(6, counter);
     }
 
     @Test
@@ -64,7 +64,7 @@ public class DbManagerTestSuite {
         }
         rs.close();
         statement.close();
-        Assert.assertEquals(1, counter);
+        Assert.assertEquals(3, counter);
     }
 
 }
