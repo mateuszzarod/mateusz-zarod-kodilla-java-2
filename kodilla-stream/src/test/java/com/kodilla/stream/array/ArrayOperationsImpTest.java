@@ -10,11 +10,13 @@ public class ArrayOperationsImpTest {
     @Test
     public void ArrayOperationsImpTest() {
         //Given
+        int[] numbers = {10, 20, 30, 40, 50, 90, 15};
         ArrayOperations operations = new ArrayOperationsImp();
+
         //When
-        double result1 = operations.getAverage(new int[]{100,100});
+        double result1 = operations.getAverage(numbers);
 
         //Then
-        Assert.assertEquals(100, result1, 0.1);
+        Assert.assertEquals(36.42, result1, 0.1);
     }
 }
