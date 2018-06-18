@@ -1,8 +1,8 @@
 package challenges.shop;
 
 public class OrderDto {
-    public User user;
-    public boolean isOrdered;
+    private User user;
+    private boolean isOrdered;
 
     public OrderDto(final User user, final boolean isOrdered) {
         this.user = user;

@@ -4,5 +4,5 @@ public enum City {
     WARSAW,
     KRAKOW,
     LUBLIN,
-    POZNAN;
+    POZNAN
 }
