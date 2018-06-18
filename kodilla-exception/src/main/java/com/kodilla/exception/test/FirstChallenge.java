@@ -1,11 +1,43 @@
 package com.kodilla.exception.test;
 
+
 public class FirstChallenge {
 
-    //Kamil czy dobrze rozumiem, że w tej metodzie rzucanie wyjątku jest "dopisane"
-    // bo normalnie przy zmiennych typu double i dzieleniu przez zero zwróci niskończoność?
-
     public double divide(double a, double b) throws ArithmeticException {
+
+        if(b == 0){
+            throw new ArithmeticException();
+        }
+        return a / b;
+    }
+
+    /**
+     * This main can throw an ArithmeticException!!!
+     * @param args
+     */
+
+    public static void main(String[] args) {
+
+        FirstChallenge firstChallenge = new FirstChallenge();
+
+        try {
+            double result = firstChallenge.divide(3, 0);
+
+            System.out.println(result);
+        } catch (ArithmeticException e) {
+
+            System.out.println("Something went wrong. " + e);
+        } finally {
+
+            System.out.println("YOU CAN'T DIVIDE WITH ZERO DUMBASS");
+        }
+    }
+}
+
+
+
+
+/*
         try{
             if (b == 0) {
                 throw new ArithmeticException();
@@ -20,13 +52,13 @@ public class FirstChallenge {
             System.out.println("Remember not to divide by 0" );
         }
     }
+*/
 
-
-    /**
+/*    *
      * This main can throw an ArithmeticException!!!
      *
      * @param args
-     */
+
     public static void main(String[] args) {
 
         FirstChallenge firstChallenge = new FirstChallenge();
@@ -55,7 +87,7 @@ public class FirstChallenge {
 
 
 
-        /*try {
+        try {
             double result = firstChallenge.divide(3, 0);
             System.out.println(result);
             System.out.println("End of try block");
@@ -64,10 +96,5 @@ public class FirstChallenge {
             System.out.println("ArithmeticException ocurred in bloc catch " + e);
         } finally {
             System.out.println("Remember not to divide by 0" );
-        }*/
-    }
-
-
-
-
-}
+        }
+    }}*/
