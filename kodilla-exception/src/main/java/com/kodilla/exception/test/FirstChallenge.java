@@ -35,26 +35,30 @@ public class FirstChallenge {
 
 
     //Zadanie 8.4
-        FirstChallenge firstChallenge2 = new FirstChallenge();
+        FlightLogic flightLogic= new FlightLogic();
 
         Flight flight = new Flight("Warsaw", "Tokyo");
         Flight flight1 = new Flight("Berlin", "Bergen");
         Flight flight2 = new Flight("Toronto", "New York");
         Flight flight3 = new Flight("Warsaw", "Berlin");
 
-
-        FlightLogic flightLogic = new FlightLogic();
+        flightLogic.addNewFlight(new Flight("Smoleńsk", "Rzeszów"));
+        flightLogic.addNewFlight(flight);
+        flightLogic.addNewFlight(flight2);
+        flightLogic.addNewFlight(flight3);
 
         try{
             flightLogic.findFlight(flight1);
-        }catch (RouteNotFoundException e){
-            System.out.println("OH NO! Flight to " + flight.getArrivalAirport() + "is not supported");
-        } finally {
-            System.out.println("try another direction, we don't support this connection");
-       //     flightLogic.getFlightMap().keySet().stream().forEach(System.out::println);
-        }
+            }catch (RouteNotFoundException e){
+            System.out.println("OH NO! Flight to " + flight.getArrivalAirport() + " is not supported");
+            } finally {
+            System.out.println("Try another direction, we don't support this connection");
+            flightLogic.getFlightMap().keySet().stream().forEach(System.out::println);
+            }
     }
 }
+
+
 
 
 

@@ -23,8 +23,6 @@ public class FlightLogic {
 
     Map<String, List<String>> flightMap = new HashMap<>();
 
-
-
     public void addNewFlight(Flight flight){
         flightMap.putIfAbsent(flight.getDepartureAirport(), new ArrayList<String>());
         flightMap.get(flight.getDepartureAirport()).add(flight.arrivalAirport);
@@ -35,6 +33,7 @@ public class FlightLogic {
         for(Map.Entry<String, List<String>> entry: flightMap.entrySet()){
             System.out.println(entry.getKey() + " " + entry.getValue());
         }
+
         return flightMap;
     }
 
@@ -54,5 +53,4 @@ public class FlightLogic {
             throw new RouteNotFoundException();
         }
 
-    }
-}
+           }}
