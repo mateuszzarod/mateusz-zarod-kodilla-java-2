@@ -10,6 +10,12 @@ import java.util.List;
         name = "Employee.retrieveLastNameOfEmployee",
         query = "FROM Employee WHERE LASTNAME = :LASTNAME"
 )
+
+@NamedNativeQuery(
+        name = "Employee.retrieveEmployeeByPartialName",
+        query = "SELECT * FROM EMPLOYEES WHERE LASTNAME LIKE :PARTIALNAME ",
+        resultClass = Employee.class)
+
 @Entity
 @Table(name = "EMPLOYEES")
 public class Employee {

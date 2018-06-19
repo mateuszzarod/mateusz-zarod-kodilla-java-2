@@ -7,13 +7,21 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-@NamedNativeQuery(
-        name = "Company.retrieveFirstThreeChar",
-        //SQL FUNCIONS SUBSTRING
-        query = "SELECT * FROM COMPANIES " +
-                "WHERE LEFT (NAME, 3) = :FIRSTTHREECHAR",
-        resultClass = Company.class
-)
+@NamedNativeQueries({
+
+        @NamedNativeQuery(
+                name = "Company.retrieveFirstThreeChar",
+                query = "SELECT * FROM COMPANIES " +
+                        "WHERE LEFT (NAME, 3) = :FIRSTTHREECHAR",
+                resultClass = Company.class
+        ),
+
+        //Zadanie 20.1
+        @NamedNativeQuery(
+                name = "Company.retrieveCompanyByPartialName",
+                query = "SELECT * FROM COMPANIES WHERE COMPANY_NAME LIKE :PARTIALNAME ",
+                resultClass = Company.class)
+})
 
 @Entity
 @Table(name = "COMPANIES")
