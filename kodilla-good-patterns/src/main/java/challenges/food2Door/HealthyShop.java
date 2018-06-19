@@ -1,9 +1,11 @@
 package challenges.food2Door;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
 
 public class HealthyShop implements Shop {
+
 
     private String name;
 

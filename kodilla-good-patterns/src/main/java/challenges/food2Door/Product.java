@@ -7,10 +7,10 @@ public class Product {
     private double quantity;
     private String shop;
 
-    //nie mogę zrozumieć, dlaczego nie mogę tutaj jako argument przesłać Shop Shop
+    //nie mogę zrozumieć,
+    // dlaczego nie mogę tutaj jako argument przesłać Shop Shop
     //intellij tworzy mi taki konstruktor domyslnie chciałem, żeby stworzyć produkt który ma pola
     //nazwa, ilość, producent (Shop)
-
 
     public Product(String name, double quantity, String shop) {
         this.name = name;

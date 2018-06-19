@@ -12,6 +12,7 @@ import java.util.Objects;
 
 public class OrderDetails {
 
+
     private String shopDetails;
     private List<Product> products;
 

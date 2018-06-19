@@ -20,6 +20,7 @@ public class OrderService {
         return new OrderSummary(orderDetailsList);
     }
 
+
     private OrderDetails processShopingCart(ShoppingCart shoppingCart, Shop shop) {
         OrderDetails orderDetails = shop.orderDetails(shoppingCart);
         boolean process = shop.process(orderDetails);
@@ -28,6 +29,5 @@ public class OrderService {
         }
         return orderDetails;
     }
-
 }
 

@@ -56,7 +56,7 @@ public class Aplication {
         //sklep zamia je od różnych producetnów
         //wysyła do klienta
 
-/*
+
         Shop shop1 = new ExtraFoodShop("ExtraFood");
         Shop shop2 = new HealthyShop("HealthyFood");
 
@@ -69,13 +69,10 @@ public class Aplication {
         ShoppingCart shoppingCart = new ShoppingCart(listOfProducts);
 
         OrderDetails orderDetails = new OrderDetails("ExtrafoodShop", listOfProducts);
-*/
 
-/*
         OrderService orderService = new OrderService(Arrays.asList(shop1, shop2));
-
         OrderSummary order = orderService.makeOrder(shoppingCart);
-        System.out.println(order);*/
+        System.out.println(order);
 
     }
 }
