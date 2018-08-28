@@ -21,6 +21,7 @@ public class ShopService {
 
     public Long openOrder(Long userId) {
         if (authenticator.isAuthenticated(userId)) {
+            //jeśli użytkwonik jest zautoryzowany, zwraca identyfikator zamówienia
             Long maxOrder = (long) orders.stream()
                     .mapToInt(o -> o.getOrderId().intValue())
                     .max().orElse(0);

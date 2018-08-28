@@ -13,11 +13,12 @@ import java.math.BigDecimal;
 public class OrderFacade {
 
     @Autowired
-    private ShopService shopService;
+    private ShopService shopService; //wewnętrzne API
 
     private static final Logger LOGGER = LoggerFactory.getLogger(OrderFacade.class);
 
-    public void processingOrder(OrderDto order, Long userID) throws OrderProcessingException { //usuwamy słówko "final" z argumentów metody dla modułu 20.3
+    public void processingOrder(OrderDto order, Long userID) throws OrderProcessingException {
+        //usuwamy słówko "final" z argumentów metody dla modułu 20.3
 
         boolean wasError = false;
         long orderId = shopService.openOrder(userID);

@@ -20,7 +20,7 @@ public class DrivingTask implements Task {
     @Override
     public String executeTask() {
         isDone = true;
-        return "driving task in progress";
+        return "Driving task is in progress...";
     }
 
     @Override

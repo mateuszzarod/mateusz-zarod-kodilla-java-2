@@ -9,6 +9,7 @@ public class Logger {
     private Logger() {
     }
 
+
     public static Logger getInstance() {
         if (logger == null) {
             synchronized (Logger.class) {
