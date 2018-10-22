@@ -1,4 +1,5 @@
-    package com.kodilla.kodillapatterns22.facade;
+package com.kodilla.kodillapatterns22.facade;
+
 import com.kodilla.kodillapatterns22.facade.api.ItemDto;
 import com.kodilla.kodillapatterns22.facade.api.OrderDto;
 import com.kodilla.kodillapatterns22.facade.api.OrderFacade;
@@ -9,6 +10,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+
 import java.math.BigDecimal;
 
 @RunWith(SpringRunner.class)
@@ -20,6 +22,20 @@ public class ShopServiceTestSuite {
 
     @Autowired
     private OrderFacade orderFacade;
+
+    @Test
+    public void testShopFavvade() {
+        OrderDto order = new OrderDto();
+        order.addItem(new ItemDto(10L, 2));
+        order.addItem(new ItemDto(216L, 1));
+        order.addItem(new ItemDto(25L, 1));
+        order.addItem(new ItemDto(11L, 3));
+        try {
+            orderFacade.processingOrder(order, 1L);
+        } catch (OrderProcessingException e) {
+            //business exeption should be catched
+        }
+    }
 
     @Test
     public void testShopServiceSubmitOrder() {
@@ -77,10 +93,10 @@ public class ShopServiceTestSuite {
         order.addItem(new ItemDto(11L, 3));
 
         try {
-            orderFacade.processingOrder(order,1L);
+            orderFacade.processingOrder(order, 1L);
             Assert.fail();
 
-        } catch (OrderProcessingException ex){
+        } catch (OrderProcessingException ex) {
             Assert.assertEquals("Payment was rejected", ex.getMessage());
         }
     }

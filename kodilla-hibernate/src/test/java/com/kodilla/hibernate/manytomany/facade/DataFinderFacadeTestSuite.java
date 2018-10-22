@@ -11,14 +11,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-
-public class DataFinderFacadeTestSuite{
+public class DataFinderFacadeTestSuite {
 
     @Autowired
     DataFinderFacade dataFinderFacade;
@@ -32,26 +30,27 @@ public class DataFinderFacadeTestSuite{
     @Test
     public void testFindByAnyPartOfNameCompany() throws NotFoundException {
         //given
-        Company orlen = new Company("orlen");
+        Company pkn = new Company("PKN Orlen");
         Company lotos = new Company("lotos");
-        Company lotosPaliwa = new Company("lotos paliwa");
-
-        companyDao.save(orlen);
-        int id1 = orlen.getId();
+        Company orlenPaliwa = new Company("Orlen Stacje Paliw");
+        companyDao.save(pkn);
+        int id1 = pkn.getId();
 
         companyDao.save(lotos);
         int id2 = lotos.getId();
 
-        companyDao.save(lotosPaliwa);
-        int id3 = lotosPaliwa.getId();
+        companyDao.save(orlenPaliwa);
+        companyDao.save(orlenPaliwa);
+        int id3 = orlenPaliwa.getId();
 
         //when
-        List<Company> searchingCompany1 =dataFinderFacade.findCompanyByPartialName("orl");
-        List<Company> searchingCompany2 =dataFinderFacade.findCompanyByPartialName("tos");
+        List<Company> searchingCompany1 = dataFinderFacade.findCompanyByPartialName("orl");
+        List<Company> searchingCompany2 = dataFinderFacade.findCompanyByPartialName("tos");
 
         //then
-        Assert.assertEquals(1, searchingCompany1.size());
-        Assert.assertEquals(2, searchingCompany2.size());
+        Assert.assertEquals(2, searchingCompany1.size());
+        Assert.assertEquals(1, searchingCompany2.size());
+
 
         //CleanUp
         try {
@@ -64,10 +63,10 @@ public class DataFinderFacadeTestSuite{
     }
 
     @Test
-    public void testFindByAnyPartOfNameEmployee() throws NotFoundException {
+    public void testFindByAnyPartOfNameEmployee() {
         //given
         Employee adamNowak = new Employee("Adam", "Nowak");
-        Employee adrianRaczynski= new Employee("Mateusz", "Zaród");
+        Employee adrianRaczynski = new Employee("Mateusz", "Zaród");
         Employee magdaNowak = new Employee("Magda", "Nowak");
 
         employeeDao.save(adamNowak);
@@ -81,7 +80,7 @@ public class DataFinderFacadeTestSuite{
 
         //when
         List<Employee> searchingEmployee1 = dataFinderFacade.findEmployeeByPartialName("Zar");
-        List<Employee> searchingEmployee2  = dataFinderFacade.findEmployeeByPartialName("Now");
+        List<Employee> searchingEmployee2 = dataFinderFacade.findEmployeeByPartialName("Now");
 
         //then
         Assert.assertEquals(1, searchingEmployee1.size());

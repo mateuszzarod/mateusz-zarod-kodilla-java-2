@@ -24,12 +24,10 @@ public class DataFinderFacade {
 
 
     public List<Company> findCompanyByPartialName (String partialName){
-
         return companyDao.retrieveCompanyByPartialName("%" + partialName + "%");
     }
 
     public List<Employee> findEmployeeByPartialName (String partialName){
-
         return employeeDao.retrieveEmployeeByPartialName("%" + partialName + "%");
     }
 }
