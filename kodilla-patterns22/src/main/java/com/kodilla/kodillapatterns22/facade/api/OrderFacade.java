@@ -13,7 +13,7 @@ import java.math.BigDecimal;
 public class OrderFacade {
 
     @Autowired
-    private ShopService shopService; //wewnętrzne API
+    private ShopService shopService; //wewnętrzne API bean Shopservice
 
     private static final Logger LOGGER = LoggerFactory.getLogger(OrderFacade.class);
 

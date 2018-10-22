@@ -1,4 +1,4 @@
-package com.kodilla.kodillapatterns22.facade;
+    package com.kodilla.kodillapatterns22.facade;
 import com.kodilla.kodillapatterns22.facade.api.ItemDto;
 import com.kodilla.kodillapatterns22.facade.api.OrderDto;
 import com.kodilla.kodillapatterns22.facade.api.OrderFacade;
@@ -65,7 +65,7 @@ public class ShopServiceTestSuite {
         }
     }
 
-    //can you catch exception i tests? no!
+    //can you catch exception in tests? no!
 
     @Test
     public void testShopFacadeWhenPaymentIsRejected() {

@@ -18,12 +18,11 @@ public class DbManager {
                         "&useSSL=False",
                 connectionProps);
         Statement statement = conn.createStatement();
+
         ResultSet rs = statement.executeQuery("SELECT * FROM EMPLOYEES");
         while (rs.next()){
             String x = rs.getString("firstname");
         }
-
-
     }
 
     public static DbManager getInstance() throws SQLException {
