@@ -9,16 +9,15 @@ public class PizzaTestSuite {
     public void testPizzaNew() {
         //Given
         Pizza pizza = new Pizza.PizzaBuilder()
-                .ingredients("onion")
-                .ingredients("olives")
                 .bottom("thin")
+                .sauce("red")
+                .ingredients("salami")
+                .ingredients("corn")
                 .build();
         System.out.println(pizza);
         //When
-        int howManyIng = pizza.getIngredients().size();
+        int ing = pizza.getIngredients().size();
         //Then
-        Assert.assertEquals(2, howManyIng);
-        Assert.assertEquals(null, pizza.getSauce());
-
+        Assert.assertEquals(2, ing);
     }
 }

@@ -20,6 +20,7 @@ public class TaxiOrderTestSuite {
     @Test
     public void testBasicTaxiOrderGetDescription() {
 //given
+        //tworzony jest delegat
         TaxiOrder theOrder = new BasicTaxiOrder();
         //when
         String description = theOrder.getDescription();
@@ -42,11 +43,14 @@ public class TaxiOrderTestSuite {
     public void testTaxiNetworkGetDescription() {
         //given
         TaxiOrder theOrder = new BasicTaxiOrder();
-        TaxiNetworkOrderDecorator taxiNetworkOrder = new TaxiNetworkOrderDecorator(theOrder);
+        //tworzony jest dekorator (i przypisywany do tej samej zmiennej co wcześniej delegat).
+        // Argumentem konstruktora dekoratora jest właśnie delegat.
+        // Dekorator go zapamiętuje w swoim wnętrzu, a następnie "opakowuje", czyli dekoruje.
+        theOrder = new TaxiNetworkOrderDecorator(theOrder);
         //when
-        String description = taxiNetworkOrder.getDescription();
+        String description = theOrder.getDescription();
         //then
-        assertEquals("Drive a course by Taxi Network", description);
+        assertEquals("Drive a courseby Taxinetwork!", description);
     }
 
     @Test

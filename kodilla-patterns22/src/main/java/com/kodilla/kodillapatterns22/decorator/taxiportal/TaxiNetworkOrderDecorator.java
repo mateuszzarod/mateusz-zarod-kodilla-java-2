@@ -10,11 +10,13 @@ public class TaxiNetworkOrderDecorator extends AbstractTaxiOrderDecorator {
 
     @Override
     public BigDecimal getCost() {
-        return super.getCost().add(new BigDecimal(35.00));
+        return super.getCost().add(new BigDecimal(35));
     }
 
     @Override
     public String getDescription() {
-        return super.getDescription() + " by Taxi Network";
+        return super.getDescription() + "by Taxinetwork!";
     }
+
+
 }

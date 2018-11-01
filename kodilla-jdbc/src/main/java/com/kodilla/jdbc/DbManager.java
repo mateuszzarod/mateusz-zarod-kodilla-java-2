@@ -25,13 +25,13 @@ public class DbManager {
         }
     }
 
+    //Singleton
     public static DbManager getInstance() throws SQLException {
         if (dbManagerInstance == null) {
             dbManagerInstance = new DbManager();
         }
         return dbManagerInstance;
     }
-
     public Connection getConnection() {
         return conn;
     }
